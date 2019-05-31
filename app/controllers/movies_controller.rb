@@ -4,6 +4,14 @@ class MoviesController < ApplicationController
     params.require(:movie).permit(:title, :rating, :description, :release_date)
   end
 
+  #  'class MoviesController < ApplicationController':
+
+  def search_tmdb
+    # hardwire to simulate failure
+    flash[:warning] = "'#{params[:search_terms]}' was not found in TMDb."
+    redirect_to movies_path
+  end
+  
   def show
     id = params[:id] # retrieve movie ID from URI route
     @movie = Movie.find(id) # look up movie by unique ID
@@ -63,4 +71,5 @@ class MoviesController < ApplicationController
         @all_ratings.each { |val| hash[val] = '1' }
         hash
      end
+
 end

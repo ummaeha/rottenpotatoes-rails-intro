@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
+  # Route that posts 'Search TMDb' form
+  post '/movies/search_tmdb'
+
   resources :movies
   
   # Example resource route with options:
